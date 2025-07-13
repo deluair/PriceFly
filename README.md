@@ -36,37 +36,70 @@ PriceFly is a comprehensive simulation platform that models the complex ecosyste
 
 ```
 PriceFly/
-├── src/pricefly/
+├── .gitignore                     # Git ignore patterns
+├── README.md                      # Project documentation
+├── airline_pricing_project.md     # Detailed project description
+├── config.yaml                    # Configuration settings
+├── requirements.txt               # Python dependencies
+├── setup.py                       # Package setup
+├── src/pricefly/                  # Main source code
 │   ├── __init__.py
 │   ├── main.py                    # Main entry point
-│   ├── core/
+│   ├── analytics/                 # Analytics and reporting
 │   │   ├── __init__.py
-│   │   └── pricing_engine.py      # Core pricing algorithms
-│   ├── data/
+│   │   ├── insights.py            # AI-driven insights
+│   │   ├── metrics.py             # Performance metrics
+│   │   ├── reporting.py           # Report generation
+│   │   └── visualization.py       # Charts and dashboards
+│   ├── api/                       # API endpoints
+│   ├── core/                      # Core business logic
 │   │   ├── __init__.py
-│   │   ├── synthetic_data.py       # Data generation engine
-│   │   ├── generators.py          # Specific data generators
-│   │   ├── loader.py              # Data loading utilities
-│   │   └── validator.py           # Data validation
-│   ├── simulation/
+│   │   ├── cost_calculator.py     # Cost calculations
+│   │   ├── demand_forecaster.py   # Demand forecasting
+│   │   ├── market_analyzer.py     # Market analysis
+│   │   ├── pricing_engine.py      # Core pricing algorithms
+│   │   └── revenue_manager.py     # Revenue management
+│   ├── data/                      # Data handling
 │   │   ├── __init__.py
-│   │   ├── engine.py              # Simulation orchestration
-│   │   ├── market.py              # Market dynamics
+│   │   ├── generators.py          # Data generators
+│   │   ├── loaders.py             # Data loading utilities
+│   │   ├── synthetic_data.py      # Synthetic data generation
+│   │   └── validators.py          # Data validation
+│   ├── models/                    # Data models
+│   │   ├── __init__.py
+│   │   ├── aircraft.py            # Aircraft models
+│   │   ├── airline.py             # Airline models
+│   │   ├── airport.py             # Airport models
+│   │   ├── costs.py               # Cost models
+│   │   ├── demand.py              # Demand models
+│   │   ├── market.py              # Market models
+│   │   ├── passenger.py           # Passenger models
+│   │   ├── pricing.py             # Pricing models
+│   │   └── route.py               # Route models
+│   ├── simulation/                # Simulation engine
+│   │   ├── __init__.py
 │   │   ├── demand.py              # Demand modeling
+│   │   ├── engine.py              # Simulation orchestration
 │   │   ├── events.py              # External events
+│   │   ├── market.py              # Market dynamics
 │   │   └── scenarios.py           # Scenario management
-│   └── analytics/
-│       ├── __init__.py
-│       ├── metrics.py             # Performance metrics
-│       ├── reporting.py           # Report generation
-│       ├── visualization.py       # Charts and dashboards
-│       └── insights.py            # AI-driven insights
-├── tests/
-├── docs/
-├── examples/
-├── requirements.txt
-├── setup.py
-└── README.md
+│   └── utils/                     # Utility functions
+├── config/                        # Configuration files
+├── data/                          # Data storage
+│   └── synthetic/                 # Generated synthetic data
+├── docs/                          # Documentation
+├── examples/                      # Example scripts
+│   └── basic_simulation.py        # Basic simulation example
+├── notebooks/                     # Jupyter notebooks
+├── reports/                       # Generated reports
+├── scenarios/                     # Scenario definitions
+├── scripts/                       # Utility scripts
+├── tests/                         # Test files
+└── visualizations/                # Visualization outputs
+    ├── competitive/               # Competition analysis charts
+    ├── demand/                    # Demand analysis charts
+    ├── pricing/                   # Pricing analysis charts
+    └── revenue/                   # Revenue analysis charts
 ```
 
 ## 🛠️ Installation
