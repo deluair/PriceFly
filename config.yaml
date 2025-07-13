@@ -1,0 +1,281 @@
+# PriceFly Configuration File
+# This file contains default settings for the airline pricing simulation platform
+
+# Application Settings
+app:
+  name: "PriceFly"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+  parallel_workers: 4
+
+# Data Generation Settings
+data_generation:
+  default_config:
+    num_airports: 100
+    num_airlines: 10
+    num_routes: 500
+    num_aircraft: 50
+    num_passengers: 10000
+    
+  # Geographic distribution
+  regions:
+    north_america: 0.4
+    europe: 0.25
+    asia_pacific: 0.2
+    latin_america: 0.1
+    africa_middle_east: 0.05
+    
+  # Airport types distribution
+  airport_types:
+    major_hub: 0.1
+    regional_hub: 0.2
+    focus_city: 0.3
+    spoke: 0.4
+    
+  # Airline business models
+  airline_models:
+    full_service: 0.4
+    low_cost: 0.35
+    ultra_low_cost: 0.15
+    regional: 0.1
+
+# Simulation Settings
+simulation:
+  default_duration_days: 365
+  time_step_hours: 1
+  booking_horizon_days: 365
+  
+  # Market dynamics
+  market:
+    price_update_frequency: "daily"
+    demand_forecast_horizon: 90
+    competitive_response_delay: 1
+    
+  # Economic parameters
+  economics:
+    base_fuel_price: 2.5  # USD per gallon
+    fuel_volatility: 0.15
+    exchange_rate_volatility: 0.1
+    inflation_rate: 0.025
+    
+  # Operational parameters
+  operations:
+    average_load_factor: 0.82
+    schedule_reliability: 0.85
+    maintenance_cost_factor: 0.12
+    
+# Pricing Engine Settings
+pricing:
+  # Base pricing parameters
+  base_markup: 0.25
+  dynamic_range: 0.5
+  
+  # Demand elasticity
+  elasticity:
+    business: -0.8
+    leisure: -1.5
+    vfr: -1.2  # Visiting Friends and Relatives
+    
+  # Booking curve parameters
+  booking_curve:
+    advance_booking_days: [1, 7, 14, 21, 30, 60, 90, 180, 365]
+    business_distribution: [0.05, 0.15, 0.20, 0.25, 0.20, 0.10, 0.03, 0.01, 0.01]
+    leisure_distribution: [0.02, 0.08, 0.12, 0.18, 0.25, 0.20, 0.10, 0.03, 0.02]
+    
+  # Revenue management
+  revenue_management:
+    overbooking_factor: 1.05
+    no_show_rate: 0.08
+    cancellation_rate: 0.05
+    
+# Analytics Settings
+analytics:
+  # Metrics calculation
+  metrics:
+    calculation_frequency: "daily"
+    retention_days: 730
+    
+  # Reporting
+  reporting:
+    default_format: "html"
+    include_charts: true
+    chart_library: "plotly"
+    
+  # Insights engine
+  insights:
+    confidence_threshold: 0.8
+    significance_level: 0.05
+    min_sample_size: 100
+    
+# Scenario Configurations
+scenarios:
+  baseline:
+    description: "Normal market conditions"
+    economic_growth: 0.025
+    fuel_volatility: 0.15
+    competition_intensity: 0.5
+    
+  recession:
+    description: "Economic downturn scenario"
+    economic_growth: -0.02
+    demand_reduction: 0.25
+    price_sensitivity_increase: 0.3
+    
+  high_growth:
+    description: "Rapid market expansion"
+    economic_growth: 0.06
+    demand_increase: 0.4
+    capacity_constraints: 0.9
+    
+  pandemic:
+    description: "Crisis with travel restrictions"
+    demand_shock: -0.7
+    route_suspensions: 0.3
+    health_safety_costs: 0.15
+    
+  high_competition:
+    description: "Intense price competition"
+    new_entrants: 3
+    price_war_probability: 0.8
+    margin_compression: 0.4
+    
+  fuel_volatility:
+    description: "High fuel price fluctuations"
+    fuel_volatility: 0.35
+    hedging_effectiveness: 0.6
+    cost_pass_through: 0.7
+    
+  tech_disruption:
+    description: "New technology adoption"
+    distribution_cost_reduction: 0.2
+    personalization_effectiveness: 0.3
+    automation_savings: 0.15
+    
+  environmental_regulations:
+    description: "Carbon pricing and sustainability"
+    carbon_tax: 50  # USD per ton CO2
+    sustainable_fuel_premium: 0.2
+    efficiency_requirements: 0.1
+
+# External Data Sources
+external_data:
+  # Economic indicators
+  economic_apis:
+    enabled: false
+    fred_api_key: null
+    world_bank_api: null
+    
+  # Fuel prices
+  fuel_data:
+    enabled: false
+    eia_api_key: null
+    
+  # Weather data
+  weather_apis:
+    enabled: false
+    openweather_api_key: null
+    
+# Database Configuration
+database:
+  # SQLite for development
+  sqlite:
+    path: "./data/pricefly.db"
+    
+  # PostgreSQL for production
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "pricefly"
+    username: null
+    password: null
+    
+  # Redis for caching
+  redis:
+    host: "localhost"
+    port: 6379
+    database: 0
+    
+# Output Settings
+output:
+  # File formats
+  formats:
+    data: "json"
+    reports: "html"
+    charts: "png"
+    
+  # Directory structure
+  directories:
+    data: "./data"
+    results: "./results"
+    reports: "./reports"
+    charts: "./charts"
+    logs: "./logs"
+    
+  # Compression
+  compression:
+    enabled: true
+    format: "gzip"
+    level: 6
+
+# Performance Settings
+performance:
+  # Memory management
+  memory:
+    max_memory_gb: 8
+    chunk_size: 10000
+    
+  # Parallel processing
+  parallel:
+    max_workers: null  # Auto-detect
+    backend: "multiprocessing"
+    
+  # Caching
+  cache:
+    enabled: true
+    max_size_mb: 1024
+    ttl_seconds: 3600
+
+# Validation Settings
+validation:
+  # Data quality thresholds
+  data_quality:
+    completeness_threshold: 0.95
+    consistency_threshold: 0.98
+    accuracy_threshold: 0.99
+    
+  # Business rules
+  business_rules:
+    max_price_increase: 2.0  # 200% of base price
+    min_load_factor: 0.3
+    max_booking_horizon: 365
+    
+# Security Settings
+security:
+  # API security
+  api:
+    rate_limiting: true
+    max_requests_per_minute: 100
+    
+  # Data encryption
+  encryption:
+    enabled: false
+    algorithm: "AES-256"
+    
+# Monitoring and Alerting
+monitoring:
+  # Health checks
+  health_checks:
+    enabled: true
+    interval_seconds: 60
+    
+  # Alerts
+  alerts:
+    enabled: false
+    email_notifications: false
+    slack_webhook: null
+    
+  # Metrics collection
+  metrics_collection:
+    enabled: true
+    prometheus_endpoint: null
